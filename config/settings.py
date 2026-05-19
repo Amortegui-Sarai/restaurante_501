@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'gestion',
 ]
 
 MIDDLEWARE = [
@@ -74,11 +75,20 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'mssql',
+        'NAME': 'restaurante_501',
+        'USER': 'sa',
+        'PASSWORD': '1077340316hanna',
+        'HOST': r'localhost\SQLEXPRESS',
+        'PORT': '1433',
+        'OPTIONS': {
+            'driver': 'ODBC Driver 17 for SQL Server',
+            'extra_params': 'TrustServerCertificate=no',
+        },
     }
 }
-
+DATABASE_CONNECTION_POOLING = False 
+CONN_MAX_AGE = 0
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
